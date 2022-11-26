@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import { Food } from './components/Food';
 
 function App() {
   return (
-    <h1>hola</h1>
+    <>
+      <Food />
+    </>
   );
 }
 
