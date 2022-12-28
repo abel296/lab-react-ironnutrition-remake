@@ -1,5 +1,4 @@
 import React from 'react';
-import './FoodBox.css'
 
 export function FoodBox({name, calories, image}) {
     return (
