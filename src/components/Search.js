@@ -18,7 +18,7 @@ export class Search extends Component {
         return (
             <>
                 <div onSubmit={e => e.preventDefault() }>
-                    <input type="text" class="input search-bar" name="search" placeholder="Search" value={ this.state.food } onChange={ (e) => this.handleInputChange(e) }></input>
+                    <input type="text" className="input search-bar" name="search" placeholder="Search" value={ this.state.food } onChange={ (e) => this.handleInputChange(e) }></input>
                 </div>
             </>
             

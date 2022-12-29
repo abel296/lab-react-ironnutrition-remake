@@ -29,16 +29,16 @@ export class Food extends Component {
     render() {
         return (
             <>
-                <div class='container'>
-                    <h1 class='title'>IronNutrition</h1>
+                <div className='container'>
+                    <h1 className='title'>IronNutrition</h1>
                     <Search filterFood={ (value) => this.filterFood(value)}  />
-                        <div class='columns'>
-                            <div class='column food'>
-                                <div class='food'>
+                        <div className='columns'>
+                            <div className='column food'>
+                                <div className='food'>
                                     { this.state.foodList.length ? <FoodList foodList={ this.state.foodList } /> : <h1>Cargando</h1> }
                                 </div>
                             </div>
-                            <div class='column food'>
+                            <div className='column food'>
                                 <h2>Today's food</h2>
                                 <strong>Total: 0 cal</strong>
                             </div>
