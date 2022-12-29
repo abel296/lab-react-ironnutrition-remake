@@ -6,7 +6,7 @@ import './Food.css'
 import { Search } from './Search';
 
 export class Food extends Component {
-    
+
     constructor() {
         super()
         this.state = {
@@ -22,8 +22,8 @@ export class Food extends Component {
     }
 
     filterFood(value) {
-            const foodListFiltered = foodList.filter(elm => elm.name.toLowerCase().includes(value.toLowerCase()))
-            this.setState({ foodList: foodListFiltered })
+        const foodListFiltered = foodList.filter(elm => elm.name.toLowerCase().includes(value.toLowerCase()))
+        this.setState({ foodList: foodListFiltered })
     }
 
     render() {
@@ -31,20 +31,20 @@ export class Food extends Component {
             <>
                 <div className='container'>
                     <h1 className='title'>IronNutrition</h1>
-                    <Search filterFood={ (value) => this.filterFood(value)}  />
-                        <div className='columns'>
-                            <div className='column food'>
-                                <div className='food'>
-                                    { this.state.foodList.length ? <FoodList foodList={ this.state.foodList } /> : <h1>Cargando</h1> }
-                                </div>
-                            </div>
-                            <div className='column food'>
-                                <h2>Today's food</h2>
-                                <strong>Total: 0 cal</strong>
+                    <Search filterFood={ (value) => this.filterFood(value) } />
+                    <div className='columns'>
+                        <div className='column food'>
+                            <div className='food'>
+                                { this.state.foodList.length ? <FoodList foodList={ this.state.foodList } /> : <i>Cargando</i> }
                             </div>
                         </div>
+                        <div className='column food'>
+                            <h2>Today's food</h2>
+                            <strong>Total: 0 cal</strong>
+                        </div>
+                    </div>
                 </div>
-            
+
             </>
         )
     }
