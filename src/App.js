@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
-import { Food } from './components/Food';
+import Food from './components/Food';
 import 'bulma/css/bulma.css';
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Food />
-    </>
-  );
+    <Food />
+  )
 }
-
-export default App;

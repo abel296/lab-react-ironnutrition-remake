@@ -1,27 +1,20 @@
-import React from 'react';
-import { Component } from "react";
+import React, { useState } from 'react';
 
-export class Search extends Component {
-    constructor() {
-        super()
-        this.state = {
-            food: ''
-        }
-    }
+function handleInputChange(e, setInput, filterFood) {
+    const { value } = e.target
+    setInput(value)
+    filterFood(value)
+}
 
-    handleInputChange(e) {
-        const {value} = e.target
-        this.setState({ food: value }, () => this.props.filterFood(value))
-    }
+export default function Search({ filterFood }) {
+    const [input, setInput] = useState('')
 
-    render() {
-        return (
-            <>
-                <div onSubmit={e => e.preventDefault() }>
-                    <input type="text" className="input search-bar" name="search" placeholder="Search" value={ this.state.food } onChange={ (e) => this.handleInputChange(e) }></input>
-                </div>
-            </>
-            
-        )
-    }
+    return (
+        <>
+            <div onSubmit={ e => e.preventDefault() }>
+                <input type="text" className="input search-bar" name="search" placeholder="Search" value={ input } onChange={ (e) => handleInputChange(e, setInput, filterFood) }></input>
+            </div>
+        </>
+
+    )
 }
