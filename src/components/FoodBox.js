@@ -20,7 +20,7 @@ export default function FoodBox({name, calories, image}) {
                 <div className="media-right">
                     <div className="field has-addons">
                         <div className="control">
-                            <input className="input" type="number" value="1" />
+                            <input className="input" type="number" defaultValue="1" />
                         </div>
                         <div className="control">
                             <button className="button is-info">
