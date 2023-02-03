@@ -9,3 +9,12 @@
 i {
     font-size: 24px;
 }
+
+.gif {
+    width: 70px;
+    padding: 15% 0 15% 0;
+}
+
+.gif-container {
+    height: 86px;
+}

@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import getGifsService from '../services/getGifs.service';
 
-export default function FoodBox({name, calories, image}) {
+
+export default function FoodBox({ name, calories, image }) {
+    const [gifState, setGifState] = useState('')
+    
+    useEffect(() => {
+        async function getGif() {
+            try {
+                setGifState(await getGifsService(name))
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getGif()
+    }, [name])
+    
     return (
         <div className="box">
             <article className="media">
@@ -16,6 +31,9 @@ export default function FoodBox({name, calories, image}) {
                             <small>{calories} cal</small>
                         </p>
                     </div>
+                </div>
+                <div className='gif-container'>
+                    <img alt={ name } className='gif' src={ gifState } />
                 </div>
                 <div className="media-right">
                     <div className="field has-addons">
