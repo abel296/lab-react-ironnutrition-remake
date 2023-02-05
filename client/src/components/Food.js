@@ -9,12 +9,16 @@ function filterFood(value, setFoodState) {
     setFoodState(foodListFiltered)
 }
 
+function showFoodGif(gifState, name, setBigGifState, setNameState) {
+    setNameState(name)
+    setBigGifState(gifState)
+}
+
 export default function Food() {
     const [foodState, setFoodState] = useState([])
-
-    useEffect(() => {
-        setTimeout(() => setFoodState(foodList), 0)
-    }, [])
+    const [bigGifState, setBigGifState] = useState('')
+    const [nameState, setNameState] = useState('')
+    useEffect(() => setFoodState(foodList), [])
 
     return (
         <>
@@ -24,12 +28,15 @@ export default function Food() {
                 <section className='columns'>
                     <div className='column food'>
                         <div className='food'>
-                            { foodState.length ? <FoodList foodList={ foodState } /> : <i>Cargando</i> }
+                            { foodState.length ? <FoodList foodList={ foodState } showFoodGif={ (gifState, name) => showFoodGif(gifState, name, setBigGifState, setNameState) }/> : <i>Cargando</i> }
                         </div>
                     </div>
                     <div className='column food'>
                         <h2>Today's food</h2>
                         <strong>Total: 0 cal</strong>
+                        <div className='gif-container-bigger'>
+                            { bigGifState ? <img alt={ nameState } className='gif-bigger' src={ bigGifState } /> : undefined }
+                        </div>
                     </div>
                 </section>
             </div>
