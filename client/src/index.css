@@ -46,4 +46,6 @@
 
 ul {
     margin-bottom: 10px;
+    list-style: inherit;
+    margin: 0 0 10px 30px 
 }

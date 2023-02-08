@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import getGifsService from '../services/getGifs.service';
 
 
-export default function FoodBox({ name, calories, image, showFoodGif }) {
+export default function FoodBox({ name, calories, image, showFoodGif, addPickedFood }) {
     const [gifState, setGifState] = useState('')
     
     useEffect(() => {
@@ -38,7 +38,11 @@ export default function FoodBox({ name, calories, image, showFoodGif }) {
                             <input className="input" type="number" defaultValue="1" />
                         </div>
                         <div className="control">
-                            <button className="button is-info" onClick={() => showFoodGif(gifState, name)}>
+                            <button className="button is-info" onClick={ e => {
+                                showFoodGif(gifState, name)
+                                const quantity = e.currentTarget.parentElement.parentElement.querySelector('input').value
+                                addPickedFood(name, calories, quantity)
+                            } }>
                                 +
                             </button>
                         </div>
