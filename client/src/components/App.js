@@ -1,5 +1,4 @@
-import React from 'react';
-import Food from './components/Food';
+import Food from './Food';
 import 'bulma/css/bulma.css';
 
 export default function App() {

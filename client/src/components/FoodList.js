@@ -1,4 +1,3 @@
-import React from 'react';
 import FoodBox from './FoodBox';
 
 export default function FoodList({ foodList, showFoodGif, addPickedFood }) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import foodList from "../foods.json";
 import FoodList from './FoodList';
 import './Food.css'
