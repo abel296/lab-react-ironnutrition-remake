@@ -3,11 +3,15 @@ import foodList from "../foods.json";
 import FoodList from './FoodList';
 import './Food.css'
 import Search from './Search';
+import PickedFoodList from './PickedFoodList';
 
 export default function Food() {
     const [foodState, setFoodState] = useState([])
     const [bigGifState, setBigGifState] = useState('')
     const [nameState, setNameState] = useState('')
+    const [totalCaloriesState, setTotalCaloriesState] = useState(0)
+    const [pickedFoodState, setPickedFoodState] = useState([])
+
     useEffect(() => setFoodState(foodList), [])
 
     function filterFood(value, setFoodState) {
@@ -20,25 +24,19 @@ export default function Food() {
         setBigGifState(gifState)
     }
 
-    function addFoodToTodaysFood(totalFoodCalories, quantity, name) {
-        const todayFoodlist = document.querySelector('.food-added-list')
-        const foodPicked = `<li> ${ quantity } ${ name } = ${ totalFoodCalories } calories </li>`
-        todayFoodlist.innerHTML += foodPicked
-    }
-
-    function addFoodCaloriesToTotal(totalFoodCalories) {
-        const caloriesTotal = document.querySelector('.total-calories')
-        const currentCaloriesTotal = Number(document.querySelector('.total-calories').innerHTML.split(' ')[1])
-        const totalWithNewCaloriesAdded = currentCaloriesTotal + totalFoodCalories
-        caloriesTotal.innerText = `Total: ${ totalWithNewCaloriesAdded } cal`
-    }
-
     function addPickedFood(name, calories, quantity) {
         const totalFoodCalories = calories * quantity
-        addFoodToTodaysFood(totalFoodCalories, quantity, name)
-        addFoodCaloriesToTotal(totalFoodCalories)
+        const newPickedFoodState = [...pickedFoodState, {
+            _id: new Date().getTime(),
+            name,
+            calories: totalFoodCalories,
+            quantity
+        }]
+        setPickedFoodState(newPickedFoodState)
+        const totalCalories = totalCaloriesState + totalFoodCalories
+        setTotalCaloriesState(totalCalories)
     }
-    
+
     return (
         <>
             <div className='container'>
@@ -51,15 +49,17 @@ export default function Food() {
                                 ? <FoodList
                                     foodList={ foodState }
                                     showFoodGif={ (gifState, name) => showFoodGif(gifState, name, setBigGifState, setNameState) }
-                                    addPickedFood={ (name, calories, quantity) => addPickedFood(name, calories, quantity) }/>
+                                    addPickedFood={ (name, calories, quantity) => addPickedFood(name, calories, quantity) } />
                                 : <i>Cargando</i>
                             }
                         </div>
                     </div>
                     <div className='column food summary'>
                         <h2>Today's food</h2>
-                        <ul className='food-added-list'></ul>
-                        <p className='total-calories'>Total: 0 cal</p>
+                        <ul className='food-added-list'>
+                            { pickedFoodState.length > 0 && <PickedFoodList pickedFoodState={pickedFoodState}></PickedFoodList> }
+                        </ul>
+                        <p className='total-calories'>Total: { totalCaloriesState } cal</p>
                         <div className='gif-container-bigger'>
                             { bigGifState ? <img alt={ nameState } className='gif-bigger' src={ bigGifState } /> : undefined }
                         </div>
