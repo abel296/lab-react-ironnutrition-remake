@@ -14,8 +14,8 @@ export default function Food() {
 
     useEffect(() => setFoodState(foodList), [])
 
-    function filterFood(value, setFoodState) {
-        const foodListFiltered = foodList.filter(elm => elm.name.toLowerCase().includes(value.toLowerCase()))
+    function filterFood(inputText) {
+        const foodListFiltered = foodList.filter(elm => elm.name.toLowerCase().includes(inputText.toLowerCase()))
         setFoodState(foodListFiltered)
     }
 
