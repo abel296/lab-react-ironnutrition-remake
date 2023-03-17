@@ -28,3 +28,7 @@ i {
     height: 100%;
     padding: 15% 0 15% 0;
 }
+
+.gif-container-bigger i {
+    font-size: 12px;
+}
