@@ -40,7 +40,7 @@ export default function Food() {
     return (
         <>
             <div className='container'>
-                <h1 className='title'>IronNutrition</h1>
+                <h1 className='title'>Nutrition List</h1>
                 <Search filterFood={ (value) => filterFood(value, setFoodState) } />
                 <section className='columns'>
                     <div className='column food'>
