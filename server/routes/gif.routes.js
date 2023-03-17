@@ -4,7 +4,6 @@ const axios = require('axios')
 require('dotenv').config()
 
 // Endpoints
-// router.get('/', (req, res) => res.render('pages/index'))
 router.get('/getSingleGif/:name', async (req, res) => {
     const { name } = req.params
 
@@ -14,6 +13,5 @@ router.get('/getSingleGif/:name', async (req, res) => {
     const { data: { data: [gifUrl] } } = gifs
     res.json(gifUrl.images['downsized_medium'].url)
 })
-
 
 module.exports = router
