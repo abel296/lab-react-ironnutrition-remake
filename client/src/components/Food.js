@@ -6,7 +6,7 @@ import Search from './Search';
 import PickedFoodList from './PickedFoodList';
 
 export default function Food() {
-    const [foodState, setFoodState] = useState([])
+    const [foodState, setFoodState] = useState()
     const [bigGifState, setBigGifState] = useState('')
     const [nameState, setNameState] = useState('')
     const [totalCaloriesState, setTotalCaloriesState] = useState(0)
@@ -45,12 +45,12 @@ export default function Food() {
                 <section className='columns'>
                     <div className='column food'>
                         <div className='food'>
-                            { foodState.length
-                                ? <FoodList
+                            { foodState?.length === 0 ? <i>There is no results</i>
+                                : foodState ? <FoodList
                                     foodList={ foodState }
                                     showFoodGif={ (gifState, name) => showFoodGif(gifState, name, setBigGifState, setNameState) }
                                     addPickedFood={ (name, calories, quantity) => addPickedFood(name, calories, quantity) } />
-                                : <i>Cargando</i>
+                                : <i>Loading</i>
                             }
                         </div>
                     </div>
