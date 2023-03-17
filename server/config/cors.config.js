@@ -1,6 +1,6 @@
 const cors = require('cors')
 
-const whitelist = [process.env.DOMAIN_LOCAL]
+const whitelist = process.env.ENVIRONMENT === 'development' ? [process.env.DOMAIN_LOCAL] : [process.env.DOMAIN_PRODUCTION]
 
 const corsOptions = {
     origin: (origin, cb) => {
