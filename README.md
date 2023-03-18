@@ -20,7 +20,6 @@ $ npm start
 
 ## Screenshoots
 ![nutrition-list-1](client/public/nutrition-list-1.png)
-![nutrition-list-1](client/public/nutrition-list-2.png)
 
 ## Technologies
 * Node
