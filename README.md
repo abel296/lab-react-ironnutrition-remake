@@ -5,12 +5,13 @@ Add food to the list and check their calories with a fun touch!
 You can try it [here](https://nutrition-list.onrender.com/)
 
 ## Setup
-* Create a server .env file through the .env.sample file with your own values
+* Create a server .env file through the .env.sample file
 * Server:
 
 ```
 $ npm install
 $ npm run dev
+(It is executed on port 5000)
 ```
 
 * Client:
@@ -18,6 +19,7 @@ $ npm run dev
 ```
 $ npm install
 $ npm start
+(It is executed on port 3000)
 ```
 
 ## Screenshoots
@@ -41,4 +43,4 @@ $ npm start
 
 ## Contact
 This is a project performed by Abel Andrés
-* Linkedin: https://www.linkedin.com/in/abel-andres/
+* Linkedin: https://www.linkedin.com/in/abel-andres
