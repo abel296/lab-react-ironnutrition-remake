@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 // DB connection
-require('./config/db.config')
+// require('./config/db.config')
 
 // Debug
 require('./config/debug.config')
