@@ -76,7 +76,8 @@ export default function Food() {
                         </ul>
                         <p className='total-calories'>Total: { totalCaloriesState } cal</p>
                         <div className='gif-container-bigger'>
-                            { loaderState && <i>Loading gif</i> }
+                            { loaderState && <i><h2>Loading gif</h2>
+                                <p>If you clicked on the add button for the first time the gift will appear after 30 seconds due to hosting conditions</p></i> }
                             { bigGifState && <img alt={ nameState } className='gif-bigger' src={ bigGifState } /> }
                         </div>
                     </div>

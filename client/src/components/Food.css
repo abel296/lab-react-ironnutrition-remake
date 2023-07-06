@@ -21,6 +21,8 @@ i {
 
 .gif-container-bigger {
     height: 486px;
+    text-align: center;
+    padding-top: 1.5rem;
 }
 
 .gif-bigger {
@@ -30,5 +32,10 @@ i {
 }
 
 .gif-container-bigger i {
-    font-size: 12px;
+    font-size: 15px;
+}
+
+.gif-container-bigger i h2 {
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
 }
